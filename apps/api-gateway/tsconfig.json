@@ -17,7 +17,7 @@
       // Horizontal layers
       "@routes/*": ["routes/*"],
       "@plugins/*": ["plugins/*"],
-      "@middleware/*": ["middleware/*"],
+      "@middlewares/*": ["middlewares/*"],
       "@services/*": ["services/*"],
 
       // Infrastructure and shared layers
