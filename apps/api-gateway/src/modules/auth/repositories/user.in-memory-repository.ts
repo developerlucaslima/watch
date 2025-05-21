@@ -9,10 +9,8 @@ export class UsersInMemoryRepository implements IUsersRepository {
   async create(data: UserCreateParams): Promise<User> {
     const newUser: User = {
       id: randomUUID(),
-      name: data.name,
-      email: data.email,
-      passwordHash: data.passwordHash,
       createdAt: new Date(),
+      ...data,
     }
 
     this.usersById.set(newUser.id, newUser)
