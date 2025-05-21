@@ -4,6 +4,5 @@ import { SignUpUseCase } from "../use-cases/sign-up.use-case"
 export function makeSignUp() {
   const usersPrismaRepository = new UsersPrismaRepository()
 
-  const signUpUseCase = new SignUpUseCase(usersPrismaRepository)
-  return signUpUseCase
+  return new SignUpUseCase(usersPrismaRepository)
 }
