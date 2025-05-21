@@ -1,6 +1,8 @@
+import { authRoutes } from '@modules/auth/routes/auth.route'
+import { videosRoutes } from '@modules/videos/routes/videos.route'
 import type { FastifyInstance } from 'fastify'
-import { watchRoutes } from '../routes/watch'
 
 export function routesRegister(app: FastifyInstance) {
-  app.register(watchRoutes, { prefix: '/watch' })
+  app.register(authRoutes, { prefix: '/auth' })
+  app.register(videosRoutes, { prefix: '/videos' })
 }
