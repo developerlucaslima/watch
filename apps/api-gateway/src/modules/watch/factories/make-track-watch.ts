@@ -1,4 +1,4 @@
-import { WatchEventProducer } from '@services/wathc-event-producer/watch-event-producer'
+import { WatchEventProducer } from '@services/watch-event-producer/watch-event-producer'
 import { TrackWatchUseCase } from '../use-cases/track-watch.use-case'
 
 export function makeTrackWatch() {
