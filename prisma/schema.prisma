@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -9,10 +8,10 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
 
   videoViews VideoView[]
 
@@ -23,7 +22,7 @@ model Video {
   id          String   @id @default(cuid())
   title       String
   description String?
-  s3Url       String
+  s3Url       String   @unique
   thumbnail   String?
   duration    Int? // in seconds
   createdAt   DateTime @default(now())

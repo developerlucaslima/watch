@@ -1,9 +1,9 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, type Prisma } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
 async function main() {
-  const videos = [
+  const videos: Prisma.VideoUncheckedCreateInput[] = [
     {
       title: 'A Beautiful Mind',
       description: 'Trailer of A Beautiful Mind (2001)',

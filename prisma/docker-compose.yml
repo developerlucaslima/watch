@@ -1,7 +1,7 @@
 services:
   postgresql:
     image: bitnami/postgresql:latest
-    container_name: sportsrats-postgres
+    container_name: watch-brasil-postgres
     volumes:
       - db:/bitnami/postgresql
     environment:
@@ -11,10 +11,10 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - sportsrats-network
+      - watch-brasil-network
 
 networks:
-  sportsrats-network:
+  watch-brasil-network:
     driver: bridge
 
 volumes:

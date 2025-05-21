@@ -6,7 +6,7 @@
   "scripts": {
     "migrate": "prisma migrate dev",
     "deploy": "prisma migrate deploy",
-    "generate": "prisma generate",
+    "generate": "npx prisma generate --schema=./schema.prisma",
     "seed": "tsx seed.ts"
   },
   "dependencies": {
