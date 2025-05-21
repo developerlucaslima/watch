@@ -1,4 +1,4 @@
-import { BaseException } from '@errors/base-exception'
+import { BaseException } from 'shared/errors/base-exception'
 import { FastifyError, FastifyReply, FastifyRequest } from 'fastify'
 import { ZodError } from 'zod'
 
