@@ -22,7 +22,8 @@
 
       // Infrastructure and shared layers
       "@env": ["env"],
-      "@types/*": ["types/*"],
+      "@database/*": ["database/*"],
+      "@shared/*": ["shared/*"],
       "@errors/*": ["errors/*"]
     },
     "esModuleInterop": true,
