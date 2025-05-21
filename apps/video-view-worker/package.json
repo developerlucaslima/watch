@@ -1,0 +1,28 @@
+{
+  "name": "video-view-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/handler.ts",
+    "build": "tsc",
+    "start": "npm run build && node ./dist/index.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.422.0",
+    "@prisma/client": "^5.12.0",
+    "dotenv": "^16.5.0",
+    "from": "^0.1.7",
+    "import": "^0.0.6",
+    "pino": "^8.15.0",
+    "pino-pretty": "^10.3.0",
+    "zod": "^3.25.7"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "@types/node": "^20.9.0",
+    "prisma": "^5.12.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.3.3"
+  }
+}
