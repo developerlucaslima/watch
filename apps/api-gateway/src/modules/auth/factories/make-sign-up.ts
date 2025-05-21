@@ -1,4 +1,4 @@
-import { SignUpUseCase } from "../controllers/sign-up.use-case"
+import { SignUpUseCase } from "../use-cases/sign-up.use-case"
 import { UsersPrismaRepository } from "../repositories/users.prisma-repo"
 
 export function makeSignUp() {
