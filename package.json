@@ -1,0 +1,8 @@
+{
+  "name": "watch",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
