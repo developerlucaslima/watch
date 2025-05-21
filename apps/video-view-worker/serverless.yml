@@ -3,16 +3,23 @@ service: analytics-worker
 provider:
   name: aws
   runtime: nodejs20.x
-  region: sa-east-1
+  region: ${env:AWS_REGION}
   environment:
     DATABASE_URL: ${env:DATABASE_URL}
+    NODE_OPTIONS: --enable-source-maps
 
 functions:
   consumeWatchEvents:
     handler: src/handler.handler
+    timeout: 10
     events:
       - sqs:
-          arn: arn:aws:sqs:sa-east-1:${env:AWS_ACCOUNT_ID}:watch-events
+          arn: arn:aws:sqs:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:watch-events
+          batchSize: 1
 
 package:
   individually: true
+  exclude:
+    - node_modules/.cache/**
+    - .next/**
+    - .git/**
