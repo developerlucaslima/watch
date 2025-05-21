@@ -6,23 +6,23 @@
 ## 📅 21/05 — Arquitetura + Backend Inicial + Banco de Dados
 ### 🎯 Meta: Fundações sólidas e mensageria funcional
 
-- [ ] - **Planejamento**
-    - [ ] - Definir estrutura de monorepo:
-        /apps/{api-gateway, analytics-worker, frontend}
+- [X] - **Planejamento**
+    - [X] - Definir estrutura de monorepo:
+        /apps/{api-gateway, video-view-worker, frontend}
         /packages/{config, types}
         /infra/ (serverless, IaC, mocks)
         /prisma/
-- [ ] - **Backend (API Gateway - Fastify)**
-    - [ ] - Criar rota pública `GET /videos` (dados reais do S3)
-    - [ ] - Criar rota protegida `POST /watch/:videoId` (JWT + publish no SQS)
-    - [ ] - Criar plugin de autenticação JWT + validação Zod
-- [ ] - **Banco de Dados + ORM**
-    - [ ] - Configurar Prisma + SQLite (local) / PostgreSQL (produção)
-    - [ ] - Criar model `VideoView` com campos `id`, `userId`, `videoId`, `viewedAt`
-- [ ] - **Mensageria com SQS**
-    - [ ] - Criar fila `watch-events`
-    - [ ] - Criar script para publicar evento manual (via CLI)
-    - [ ] - Validar evento via Postman ou script de teste
+- [X] - **Backend (API Gateway - Fastify)**
+    - [X] - Criar rota pública `GET /videos` (dados reais do S3)
+    - [X] - Criar rota protegida `POST /watch/:videoId` (JWT + publish no SQS)
+    - [X] - Criar plugin de autenticação JWT + validação Zod
+- [X] - **Banco de Dados + ORM**
+    - [X] - Configurar Prisma + PostgreSQL
+    - [X] - Criar model `VideoView` com campos `id`, `userId`, `videoId`, `viewedAt`
+- [X] - **Mensageria com SQS**
+    - [X] - Criar fila `watch-events`
+    - [X] - Criar script para publicar evento manual (via CLI)
+    - [X] - Validar evento via Postman ou script de teste
 
 ---
 
@@ -34,7 +34,7 @@
     - [ ] - Tela principal: listar vídeos (`GET /videos`)
     - [ ] - Botão “Assistir” → chama `POST /watch/:videoId`
     - [ ] - Reproduzir vídeo real com `<video src="...">`
-- [ ] - **Analytics Worker (Fastify script ou microservice)**
+- [ ] - **Video View Worker (Fastify script ou microservice)**
     - [ ] - Polling no SQS
     - [ ] - Validar formato da mensagem
     - [ ] - Salvar no banco (`VideoView`) via Prisma
