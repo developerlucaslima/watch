@@ -11,7 +11,7 @@ const envSchema = z.object({
   AWS_ACCESS_KEY_ID: z.string(),
   AWS_SECRET_ACCESS_KEY: z.string(),
   SQS_QUEUE_URL: z.string().url(),
-  DATABASE_URL: z.string(),
+  DATABASE_URL: z.string().url(),
 })
 
 const _env = envSchema.safeParse(process.env)
