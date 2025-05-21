@@ -1,7 +1,5 @@
+import type { WatchEvent } from "@shared/types/watch";
+
 export interface IWatchEventProducer {
-  send(event: {
-    videoId: string
-    userId: string
-    timestamp: number
-  }): Promise<void>
+  send(event: WatchEvent): Promise<void>
 }
