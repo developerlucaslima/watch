@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { makeSignUp } from '../factories/make-sign-up'
-import { ACCESS_TOKEN_EXPIRATION_SECONDS, REFRESH_TOKEN_EXPIRATION_SECONDS } from 'middlewares/jwt/jwt-config'
-import { setAuthCookies } from 'middlewares/jwt/set-auth-cookies'
+import { ACCESS_TOKEN_EXPIRATION_SECONDS, REFRESH_TOKEN_EXPIRATION_SECONDS } from '@middlewares/jwt/jwt-config'
+import { setAuthCookies } from '@middlewares/jwt/set-auth-cookies'
 import { mapAuthenticatedUserResponse } from '../dtos/user'
 
 const signUpSchema = z.object({

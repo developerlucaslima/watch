@@ -1,6 +1,6 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
-import { ACCESS_TOKEN_EXPIRATION_SECONDS, REFRESH_TOKEN_EXPIRATION_SECONDS } from 'middlewares/jwt/jwt-config'
-import { setAuthCookies } from 'middlewares/jwt/set-auth-cookies'
+import { setAuthCookies } from '@middlewares/jwt/set-auth-cookies'
+import { ACCESS_TOKEN_EXPIRATION_SECONDS, REFRESH_TOKEN_EXPIRATION_SECONDS } from '@middlewares/jwt/jwt-config'
 
 export async function refreshTokenController(
   request: FastifyRequest,
