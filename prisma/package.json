@@ -4,17 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "migrate": "prisma migrate dev",
-    "deploy": "prisma migrate deploy",
-    "generate": "npx prisma generate --schema=./schema.prisma",
+    "migrate": "npx prisma migrate dev",
+    "deploy": "npx prisma migrate deploy",
+    "generate": "npx prisma generate",
     "seed": "tsx seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.12.0"
+    "@prisma/client": "^6.8.2"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
-    "prisma": "^5.12.0",
+    "prisma": "^6.6.0",
     "tsx": "^4.19.4"
   }
 }
