@@ -16,21 +16,17 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      // 🌐 Base aliases
-      "@/*": ["src/*"],                           // Generic access to anything inside src/
-      "@features/*": ["src/features/*"],          // Domain-driven features (DDD-style folders)
-
       // 🧩 Specific feature modules
       "@auth/*": ["src/features/auth/*"],         // Authentication (login, signup, Google)
       "@video/*": ["src/features/video/*"],       // Video listing and metadata
       "@watch/*": ["src/features/watch/*"],       // Video player page /watch/[id]
       "@player/*": ["src/features/player/*"],     // Decoupled, reusable video player component
-
+      
       // 🧱 Reusable UI components
       "@components/*": ["src/components/*"],      // Shared UI components
       "@ui/*": ["src/components/ui/*"],           // Shadcn UI components (Button, Input, etc.)
       "@layout/*": ["src/components/layout/*"],   // Layout components like Header, Footer, etc.
-
+      
       // ⚙️ Global state and logic
       "@stores/*": ["src/stores/*"],              // Zustand global state stores
       "@hooks/*": ["src/hooks/*"],                // Reusable React hooks (non-feature-specific)
@@ -39,13 +35,17 @@
       "@services/*": ["src/services/*"],          // API clients, HTTP utilities
       "@lib/*": ["src/lib/*"],                    // Low-level utilities (cookies, JWT, etc.)
       "@styles/*": ["src/styles/*"],              // Global styles, Tailwind config
-
+      
       // 📦 Types and constants
-      "@types/*": ["src/types/*"],                // Global type declarations and DTOs
-      "@constants/*": ["src/constants/*"],        // Shared constants (routes, messages, enums)
-
+      // "@types/*": ["src/types/*"],                // Global type declarations and DTOs
+      // "@constants/*": ["src/constants/*"],        // Shared constants (routes, messages, enums)
+      
       // ♻️ Shared code with backend
-      "@shared/*": ["../../packages/shared/*"]    // Shared package with types and utilities
+      "@shared/*": ["../../packages/shared/*"],    // Shared package with types and utilities
+
+      // 🌐 Base aliases
+      "@/*": ["src/*"],                           // Generic access to anything inside src/
+      "@features/*": ["src/features/*"],          // Domain-driven features (DDD-style folders)
     }
   },
   "include": [
