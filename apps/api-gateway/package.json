@@ -1,17 +1,12 @@
 {
   "name": "api-gateway",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/app.ts",
     "build": "tsc",
     "start": "npm run build && node ./dist/index.js",
     "setup:sqs": "node scripts/create-watch-events-sqs.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.812.0",
     "@fastify/aws-lambda": "^5.1.4",
