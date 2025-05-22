@@ -3,7 +3,7 @@ name: Deploy Video View Worker
 on:
   push:
     branches:
-      - dev
+      - main
     paths:
       - 'apps/video-view-worker/**'
       - '.github/workflows/deploy-video-view-worker.yml'
