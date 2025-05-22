@@ -1,7 +1,7 @@
+import { makeRegisterVideoView } from '@factories/make-register-video-view'
+import { logger } from '@services/logger'
 import type { SQSEvent } from 'aws-lambda'
 import { z } from 'zod'
-import { logger } from '@services/logger'
-import { makeRegisterVideoView } from '@factories/make-register-video-view'
 
 const messageSchema = z.object({
   userId: z.string(),

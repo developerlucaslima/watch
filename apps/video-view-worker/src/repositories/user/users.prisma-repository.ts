@@ -1,5 +1,6 @@
-import type { IUsersRepository } from "./users.interface-repository";
 import { prisma } from "@database/prisma";
+
+import type { IUsersRepository } from "./users.interface-repository";
 
 export class UsersPrismaRepository implements IUsersRepository {
   async findById(userId: string) {

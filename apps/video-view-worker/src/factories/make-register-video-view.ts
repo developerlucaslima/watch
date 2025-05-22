@@ -1,6 +1,6 @@
 import { UsersPrismaRepository } from "@repositories/user/users.prisma-repository"
-import { VideoViewsPrismaRepository } from "@repositories/video-view/video-views.prisma-repository"
 import { VideosPrismaRepository } from "@repositories/video/videos.prisma-repository"
+import { VideoViewsPrismaRepository } from "@repositories/video-view/video-views.prisma-repository"
 import { RegisterVideoViewUseCase } from "@use-cases/register-video-view.use-case"
 
 export function makeRegisterVideoView() {

@@ -1,6 +1,6 @@
 import type { IUsersRepository } from '@repositories/user/users.interface-repository'
-import type { IVideoViewsRepository } from '@repositories/video-view/video-views.interface-repository'
 import type { IVideosRepository } from '@repositories/video/videos.interface-repository'
+import type { IVideoViewsRepository } from '@repositories/video-view/video-views.interface-repository'
 import { InvalidRequestException } from '@shared/errors/invalid-request.exception'
 import { ResourceNotFoundException } from '@shared/errors/resource-not-found.exception'
 

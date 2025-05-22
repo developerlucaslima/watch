@@ -1,5 +1,6 @@
-import { randomUUID } from 'crypto'
 import type { Video, VideoCreateParams } from '@shared/types/video'
+import { randomUUID } from 'crypto'
+
 import type { IVideosRepository } from './videos.interface-repository'
 
 export class VideosInMemoryRepository implements IVideosRepository {
