@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "tsx watch src/handler.ts",
     "build": "tsc",
-    "start": "npm run build && node ./dist/index.js"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.422.0",
