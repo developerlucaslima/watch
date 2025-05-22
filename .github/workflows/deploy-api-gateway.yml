@@ -26,11 +26,9 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: 📥 Install dependencies
-        working-directory: apps/api-gateway
         run: npm ci
 
       - name: 🧹 Run Lint
-        working-directory: .
         run: npm run lint:api
 
       - name: 🛠️ Build and Typecheck
