@@ -1,4 +1,5 @@
 import { prisma } from "@database/prisma"
+
 import type { IVideosRepository } from "./videos.interface-repository"
 
 export class VideosPrismaRepository implements IVideosRepository {

@@ -1,6 +1,6 @@
-import type { FastifyRequest, FastifyReply } from 'fastify'
+import { makeTrackWatch } from '@watch/factories/make-track-watch'
+import type { FastifyReply,FastifyRequest } from 'fastify'
 import { z } from 'zod'
-import { makeTrackWatch } from '../factories/make-track-watch'
 
 const paramsSchema = z.object({
   videoId: z.string().uuid(),

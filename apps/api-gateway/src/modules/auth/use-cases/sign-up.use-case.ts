@@ -1,8 +1,8 @@
-import { hash } from 'bcryptjs'
-import type { UserWithoutPassword } from '@shared/types/user'
-import type { IUsersRepository } from '../repositories/users.interface-repository'
+import type { IUsersRepository } from '@auth/repositories/users.interface-repository'
 import { EmailNotAvailableException } from '@shared/errors/email-not-available.exception'
 import { InvalidRequestException } from '@shared/errors/invalid-request.exception'
+import type { UserWithoutPassword } from '@shared/types/user'
+import { hash } from 'bcryptjs'
 
 interface SignUpUseCaseRequest {
   name: string

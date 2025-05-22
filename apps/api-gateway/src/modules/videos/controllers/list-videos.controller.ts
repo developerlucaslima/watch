@@ -1,6 +1,6 @@
-import type { FastifyRequest, FastifyReply } from 'fastify'
-import { makeListVideos } from '../factories/make-list-videos'
-import { mapVideoResponse } from '../dtos/videos.dto'
+import { mapVideoResponse } from '@videos/dtos/videos.dto'
+import { makeListVideos } from '@videos/factories/make-list-videos'
+import type { FastifyReply,FastifyRequest } from 'fastify'
 
 export async function listVideosController(req: FastifyRequest, reply: FastifyReply) {
   const useCase = makeListVideos()

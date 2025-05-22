@@ -1,5 +1,5 @@
-import { VideosPrismaRepository } from '../repositories/videos.prisma-repository'
-import { ListVideosUseCase } from '../use-cases/list-videos.use-case'
+import { VideosPrismaRepository } from '@videos/repositories/videos.prisma-repository'
+import { ListVideosUseCase } from '@videos/use-cases/list-videos.use-case'
 
 export function makeListVideos() {
   const videosPrismaRepository = new VideosPrismaRepository()

@@ -1,7 +1,7 @@
-import type { FastifyRequest, FastifyReply } from 'fastify'
-import { makeGetVideo } from '../factories/make-get-video'
+import { mapVideoResponse } from '@videos/dtos/videos.dto'
+import { makeGetVideo } from '@videos/factories/make-get-video'
+import type { FastifyReply,FastifyRequest } from 'fastify'
 import { z } from 'zod'
-import { mapVideoResponse } from '../dtos/videos.dto'
 
 const paramsSchema = z.object({
   id: z.string().uuid(),

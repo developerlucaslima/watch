@@ -1,5 +1,5 @@
-import type { FastifyReply, FastifyRequest } from 'fastify'
 import { clearAuthCookies } from '@middlewares/jwt/clear-auth-cookies'
+import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function signOutController(
   _request: FastifyRequest,

@@ -11,7 +11,7 @@
       // DDD modules (domain-oriented)
       "@modules/*": ["src/modules/*"],
       "@auth/*": ["src/modules/auth/*"],
-      "@video/*": ["src/modules/video/*"],
+      "@videos/*": ["src/modules/videos/*"],
       "@watch/*": ["src/modules/watch/*"],
 
       // Horizontal layers
@@ -23,6 +23,7 @@
       // Infrastructure
       "@env": ["src/env"],
       "@database/*": ["src/database/*"],
+      "@infra/*": ["src/infra/*"],
       
       // Shared
       "@shared/*": ["../../packages/shared/*"]
@@ -34,5 +35,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
   },
-  "include": ["../api-gateway/src/**/*", "../api-gateway/scripts", "../../packages/shared/**/*"]
+  "include": ["src", "scripts", "../../packages/shared"]
 }

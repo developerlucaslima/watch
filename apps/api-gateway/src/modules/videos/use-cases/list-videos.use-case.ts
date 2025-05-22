@@ -1,5 +1,5 @@
 import type { Video } from '@shared/types/video'
-import type { IVideosRepository } from '../repositories/videos.interface-repository'
+import type { IVideosRepository } from '@videos/repositories/videos.interface-repository'
 
 interface ListVideosResponse {
   videos: Video[]

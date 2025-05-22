@@ -1,4 +1,4 @@
-import { SQSClient, CreateQueueCommand, GetQueueUrlCommand } from '@aws-sdk/client-sqs'
+import { CreateQueueCommand, GetQueueUrlCommand,SQSClient } from '@aws-sdk/client-sqs'
 import { env } from '@env'
 
 const QUEUE_NAME = 'watch-events'

@@ -1,6 +1,7 @@
-import type { UserCreateParams } from "@shared/types/user";
-import type { IUsersRepository } from "./users.interface-repository";
 import { prisma } from "@database/prisma";
+import type { UserCreateParams } from "@shared/types/user";
+
+import type { IUsersRepository } from "./users.interface-repository";
 
 export class UsersPrismaRepository implements IUsersRepository {
   async create(data: UserCreateParams) {

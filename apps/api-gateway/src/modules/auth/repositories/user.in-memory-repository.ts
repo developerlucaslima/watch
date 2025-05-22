@@ -1,6 +1,7 @@
-import type { IUsersRepository } from './users.interface-repository'
 import type { User, UserCreateParams } from '@shared/types/user'
 import { randomUUID } from 'crypto'
+
+import type { IUsersRepository } from './users.interface-repository'
 
 export class UsersInMemoryRepository implements IUsersRepository {
   private usersById = new Map<string, User>()

@@ -1,7 +1,7 @@
-import type { FastifyInstance } from 'fastify'
-import { listVideosController } from '../controllers/list-videos.controller'
-import { getVideoController } from '../controllers/get-video.controller'
 import { verifyJwt } from '@middlewares/verify-jwt'
+import { getVideoController } from '@videos/controllers/get-video.controller'
+import { listVideosController } from '@videos/controllers/list-videos.controller'
+import type { FastifyInstance } from 'fastify'
 
 export async function videosRoutes(app: FastifyInstance) {
   /** Authenticated */
