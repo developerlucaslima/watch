@@ -1,9 +1,16 @@
-service: analytics-worker
+service: video-view-worker
 
 provider:
   name: aws
   runtime: nodejs20.x
+  architecture: arm64
   region: ${env:AWS_REGION}
+  stage: ${opt:stage, 'dev'}
+  stackName: ${self:service}-${opt:stage, 'dev'}
+  timeout: 20
+  logRetentionInDays: 7
+  tracing:
+    lambda: true
   environment:
     DATABASE_URL: ${env:DATABASE_URL}
     NODE_OPTIONS: --enable-source-maps
@@ -11,7 +18,6 @@ provider:
 functions:
   consumeWatchEvents:
     handler: src/handler.handler
-    timeout: 10
     events:
       - sqs:
           arn: arn:aws:sqs:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:watch-events
@@ -19,7 +25,8 @@ functions:
 
 package:
   individually: true
+  excludeDevDependencies: true
   exclude:
-    - node_modules/.cache/**
-    - .next/**
     - .git/**
+    - .vscode/**
+    - node_modules/.cache/**
