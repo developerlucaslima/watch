@@ -1,8 +1,8 @@
-import { WatchEventProducer } from '@services/watch-event-producer/watch-event-producer'
+import { WatchEventsProducer } from 'infra/messaging/watch-event/watch-events-producer'
 import { TrackWatchUseCase } from '../use-cases/track-watch.use-case'
 
 export function makeTrackWatch() {
-  const watchEventProducer = new WatchEventProducer()
+  const watchEventProducer = new WatchEventsProducer()
 
   return new TrackWatchUseCase(watchEventProducer)
 }

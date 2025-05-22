@@ -1,4 +1,4 @@
-import type { IWatchEventProducer } from "@services/watch-event-producer/watch-event-producer.interface"
+import type { IWatchEventsProducer } from "infra/messaging/watch-event/watch-events-producer.interface"
 
 interface TrackWatchRequest {
   videoId: string
@@ -6,7 +6,7 @@ interface TrackWatchRequest {
 }
 
 export class TrackWatchUseCase {
-  constructor(private readonly watchEventProducer: IWatchEventProducer) {}
+  constructor(private readonly watchEventProducer: IWatchEventsProducer) {}
 
   async execute({ videoId, userId }: TrackWatchRequest): Promise<void> {
     const event = {
