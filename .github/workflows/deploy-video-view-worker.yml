@@ -2,35 +2,38 @@ name: Deploy Video View Worker
 
 on:
   push:
+    branches:
+      - dev
     paths:
       - 'apps/video-view-worker/**'
       - '.github/workflows/deploy-video-view-worker.yml'
 
 jobs:
   deploy:
+    name: Deploy Video View Worker
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: ⬇️ Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Cache Node.js modules
+      - name: 📦 Cache Node.js modules
         uses: actions/cache@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          path: apps/video-view-worker/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('apps/video-view-worker/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
+      - name: 📥 Install dependencies
+        working-directory: apps/video-view-worker
         run: npm ci
 
-      - name: Deploy Video View Worker
+      - name: 🛠️ Build and Typecheck
+        working-directory: apps/video-view-worker
+        run: npm run build && npm run typecheck
+
+      - name: 🚀 Deploy Worker
         working-directory: apps/video-view-worker
         run: npx serverless deploy --stage=dev
         env:
