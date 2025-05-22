@@ -1,0 +1,31 @@
+service: api-gateway
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  architecture: arm64
+  region: ${env:AWS_REGION}
+  stage: ${opt:stage, 'dev'}
+  stackName: ${self:service}-${opt:stage, 'dev'}
+  timeout: 20
+  logRetentionInDays: 7
+  tracing:
+    lambda: true
+  environment:
+    DATABASE_URL: ${env:DATABASE_URL}
+    JWT_SECRET: ${env:JWT_SECRET}
+    NODE_OPTIONS: --enable-source-maps
+
+functions:
+  api:
+    handler: src/lambda.handler
+    events:
+      - httpApi: '*'
+
+package:
+  individually: true
+  excludeDevDependencies: true
+  exclude:
+    - .git/**
+    - .vscode/**
+    - node_modules/.cache/**
