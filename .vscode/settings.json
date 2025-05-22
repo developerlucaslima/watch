@@ -5,8 +5,7 @@
     { "mode": "auto" }
   ],
   "explorer.fileNesting.patterns": {
-    "package.json": ".eslint*, eslint*, prettier*, tsconfig*, vite*, pnpm-*, bun.lockb, nest*, package-lock*, .npmrc, .gitignore, .env*",
-    "tailwind.config.*": "tailwind.config*, postcss.config*",
+    "package.json": ".eslint*, eslint*, .prettier*, prettier*, tsconfig*, vite*, pnpm-*, bun.lockb, nest*, package-lock*, .npmrc, .gitignore, .env*, next*, postcss*, tailwind*, tsup*, vitest*, vitest.config*, components*",
     ".env.local": ".env.*",
     ".env": ".env.*"
   },
