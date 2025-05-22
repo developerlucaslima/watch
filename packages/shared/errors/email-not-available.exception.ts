@@ -1,4 +1,4 @@
-import { BaseException } from './base-exception'
+import { BaseException } from "./base.exception"
 
 const CONFLICT_ERROR_CODE = 409
 

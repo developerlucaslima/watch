@@ -1,4 +1,4 @@
-import { BaseException } from './base-exception'
+import { BaseException } from "./base.exception"
 
 const INVALID_CREDENTIALS_ERROR_CODE = 401
 

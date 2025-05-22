@@ -1,6 +1,6 @@
-import { BaseException } from 'shared/errors/base-exception'
 import { FastifyError, FastifyReply, FastifyRequest } from 'fastify'
 import { ZodError } from 'zod'
+import { BaseException } from './base.exception'
 
 export function globalErrorHandler(
   error: FastifyError,

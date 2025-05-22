@@ -1,4 +1,4 @@
-import { BaseException } from './base-exception'
+import { BaseException } from "./base.exception"
 
 const PASSWORD_ALREADY_SET_ERROR_CODE = 400
 

@@ -1,4 +1,4 @@
-import { BaseException } from './base-exception'
+import { BaseException } from "./base.exception"
 
 const UNAUTHORIZED_ERROR_CODE = 401
 
