@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
@@ -16,7 +17,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 })
 
-export const config = [
+export default [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
 
   {
@@ -65,7 +66,6 @@ export const config = [
       'simple-import-sort/exports': 'error',
 
       // Código limpo
-      'jsx-quotes': ['error', 'prefer-single'],
       'prefer-const': 'error',
       'no-var': 'error',
       'eol-last': ['error', 'always'],
