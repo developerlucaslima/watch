@@ -8,25 +8,25 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      // DDD modules (domain-oriented)
-      "@modules/*": ["src/modules/*"],
-      "@auth/*": ["src/modules/auth/*"],
-      "@videos/*": ["src/modules/videos/*"],
-      "@watch/*": ["src/modules/watch/*"],
+      // 📦 Domain modules (DDD structure)
+      "@modules/*": ["src/modules/*"],             // Base namespace for domain modules
+      "@auth/*": ["src/modules/auth/*"],           // Auth module (login, JWT, etc.)
+      "@videos/*": ["src/modules/videos/*"],       // Video domain logic
+      "@watch/*": ["src/modules/watch/*"],         // Watch/stream tracking logic
 
-      // Horizontal layers
-      "@routes/*": ["src/routes/*"],
-      "@plugins/*": ["src/plugins/*"],
-      "@middlewares/*": ["src/middlewares/*"],
-      "@services/*": ["src/services/*"],
+      // 🧱 Horizontal layers (cross-cutting concerns)
+      "@routes/*": ["src/routes/*"],               // Route definitions (HTTP layer)
+      "@plugins/*": ["src/plugins/*"],             // Fastify plugins or similar middlewares
+      "@middlewares/*": ["src/middlewares/*"],     // Request/response middlewares
+      "@services/*": ["src/services/*"],           // Application services / use cases
 
-      // Infrastructure
-      "@env": ["src/env"],
-      "@database/*": ["src/database/*"],
-      "@infra/*": ["src/infra/*"],
-      
-      // Shared
-      "@shared/*": ["../../packages/shared/*"]
+      // 🛠 Infrastructure & environment
+      "@env": ["src/env"],                         // Env var validation (e.g. zod)
+      "@database/*": ["src/database/*"],           // DB setup, migrations, Prisma
+      "@infra/*": ["src/infra/*"],                 // AWS, external adapters, transport layers
+
+      // ♻️ Shared cross-project types/utilities
+      "@shared/*": ["../../packages/shared/*"]     // Shared types/utils between backend & frontend
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,

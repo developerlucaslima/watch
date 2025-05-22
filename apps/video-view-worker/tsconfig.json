@@ -8,18 +8,19 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      // Clean Architecture - Application Layer
-      "@consumers/*": ["src/consumers/*"],
-      "@use-cases/*": ["src/use-cases/*"],
-      "@factories/*": ["src/factories/*"],
-      "@repositories/*": ["src/repositories/*"],
-      "@services/*": ["src/services/*"],
-      
-      // Infrastructure
-      "@env": ["src/env"],
-      "@database/*": ["src/database/*"],
-      // Shared
-      "@shared/*": ["../../packages/shared/*"]
+      // 🧠 Application Layer (Clean Architecture)
+      "@consumers/*": ["src/consumers/*"],           // Consumers for queues or external events (e.g., SQS handlers)
+      "@use-cases/*": ["src/use-cases/*"],           // Core application logic (business use cases)
+      "@factories/*": ["src/factories/*"],           // Factory functions for dependencies or objects
+      "@repositories/*": ["src/repositories/*"],     // Interfaces and implementations for data access
+      "@services/*": ["src/services/*"],             // Application-level services (helpers, orchestration)
+
+      // 🛠 Infrastructure
+      "@env": ["src/env"],                           // Environment variable validation and loading
+      "@database/*": ["src/database/*"],             // Persistence layer (e.g., Prisma, migrations, schema)
+
+      // ♻️ Shared code across projects
+      "@shared/*": ["../../packages/shared/*"]       // Shared DTOs, types, and utilities between frontend/backend
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
