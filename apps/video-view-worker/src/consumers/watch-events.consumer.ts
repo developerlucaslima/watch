@@ -17,7 +17,6 @@ export async function handler(event: SQSEvent) {
       const { userId, videoId } = messageSchema.parse(payload)
 
       await registerVideoView.execute({ userId, videoId })
-
     } catch (err) {
       logger.error({ err }, '❌ Failed to process SQS message')
     }

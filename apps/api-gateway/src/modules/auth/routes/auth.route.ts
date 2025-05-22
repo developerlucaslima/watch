@@ -4,7 +4,6 @@ import { signOutController } from '@auth/controllers/sign-out.controller'
 import { signUpController } from '@auth/controllers/sign-up.controller'
 import type { FastifyInstance } from 'fastify'
 
-
 export async function authRoutes(app: FastifyInstance) {
   /** Authenticate */
   app.post('/sign-up', signUpController)

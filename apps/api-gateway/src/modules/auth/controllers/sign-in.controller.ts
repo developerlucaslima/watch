@@ -1,6 +1,9 @@
 import { mapAuthenticatedUserResponse } from '@auth/dtos/user'
 import { makeSignIn } from '@auth/factories/make-sign-in'
-import { ACCESS_TOKEN_EXPIRATION_SECONDS, REFRESH_TOKEN_EXPIRATION_SECONDS } from '@middlewares/jwt/jwt-config'
+import {
+  ACCESS_TOKEN_EXPIRATION_SECONDS,
+  REFRESH_TOKEN_EXPIRATION_SECONDS,
+} from '@middlewares/jwt/jwt-config'
 import { setAuthCookies } from '@middlewares/jwt/set-auth-cookies'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'

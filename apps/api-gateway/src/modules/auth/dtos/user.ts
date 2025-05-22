@@ -1,8 +1,6 @@
-import type { UserWithoutPassword } from "@shared/types/user";
+import type { UserWithoutPassword } from '@shared/types/user'
 
-export function mapAuthenticatedUserResponse(
-  user: UserWithoutPassword,
-) {
+export function mapAuthenticatedUserResponse(user: UserWithoutPassword) {
   return {
     id: user.id,
     name: user.name,

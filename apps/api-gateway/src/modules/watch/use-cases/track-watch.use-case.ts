@@ -1,4 +1,4 @@
-import type { IWatchEventsProducer } from "@infra/messaging/watch-event/watch-events-producer.interface"
+import type { IWatchEventsProducer } from '@infra/messaging/watch-event/watch-events-producer.interface'
 
 interface TrackWatchRequest {
   videoId: string

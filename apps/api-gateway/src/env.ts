@@ -3,7 +3,10 @@ import 'dotenv/config'
 import { z } from 'zod'
 
 const envSchema = z.object({
-  NODE_ENV: z.enum(['development', 'test', 'production']).optional().default('development'),
+  NODE_ENV: z
+    .enum(['development', 'test', 'production'])
+    .optional()
+    .default('development'),
   ORIGIN_URL: z.string().url().optional().default('http://localhost:3000'),
   PORT: z.coerce.number().optional().default(3333),
   JWT_SECRET: z.string(),
@@ -16,8 +19,14 @@ const envSchema = z.object({
 
 const _env = envSchema.safeParse(process.env)
 
-if (!_env.success || (_env.data.NODE_ENV === 'production' && !_env.data.JWT_SECRET)) {
-  console.error('Invalid or missing environment variables', _env.error?.format?.())
+if (
+  !_env.success ||
+  (_env.data.NODE_ENV === 'production' && !_env.data.JWT_SECRET)
+) {
+  console.error(
+    'Invalid or missing environment variables',
+    _env.error?.format?.(),
+  )
   throw new Error('Invalid environment variables.')
 }
 

@@ -1,4 +1,4 @@
-import type { User, UserCreateParams } from "@shared/types/user"
+import type { User, UserCreateParams } from '@shared/types/user'
 
 export interface IUsersRepository {
   create(data: UserCreateParams): Promise<User>

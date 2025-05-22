@@ -1,4 +1,8 @@
-import { CreateQueueCommand, GetQueueUrlCommand,SQSClient } from '@aws-sdk/client-sqs'
+import {
+  CreateQueueCommand,
+  GetQueueUrlCommand,
+  SQSClient,
+} from '@aws-sdk/client-sqs'
 import { env } from '@env'
 
 const QUEUE_NAME = 'watch-events'
@@ -9,7 +13,9 @@ const sqsClient = new SQSClient({ region: env.AWS_REGION })
 
 async function getQueueUrl(name: string): Promise<string | null> {
   try {
-    const { QueueUrl } = await sqsClient.send(new GetQueueUrlCommand({ QueueName: name }))
+    const { QueueUrl } = await sqsClient.send(
+      new GetQueueUrlCommand({ QueueName: name }),
+    )
     return QueueUrl ?? null
   } catch {
     return null

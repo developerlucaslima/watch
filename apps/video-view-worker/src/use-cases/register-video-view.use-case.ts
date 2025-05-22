@@ -13,12 +13,12 @@ export class RegisterVideoViewUseCase {
   constructor(
     private readonly videoViewsRepository: IVideoViewsRepository,
     private readonly usersRepository: IUsersRepository,
-    private readonly videosRepository: IVideosRepository
+    private readonly videosRepository: IVideosRepository,
   ) {}
 
   async execute({ userId, videoId }: RegisterVideoViewRequest): Promise<void> {
-     // It should throw if userId or videoId is missing
-     if (!userId?.trim()) {
+    // It should throw if userId or videoId is missing
+    if (!userId?.trim()) {
       throw new InvalidRequestException('User ID is required.')
     }
 

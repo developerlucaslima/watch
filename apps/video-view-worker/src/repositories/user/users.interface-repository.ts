@@ -1,4 +1,4 @@
-import type { User, UserCreateParams } from "@shared/types/user"
+import type { User, UserCreateParams } from '@shared/types/user'
 
 export interface IUsersRepository {
   findById(id: string): Promise<User | null>

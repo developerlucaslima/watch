@@ -1,6 +1,6 @@
-import { prisma } from "@database/prisma"
+import { prisma } from '@database/prisma'
 
-import type { IVideosRepository } from "./videos.interface-repository"
+import type { IVideosRepository } from './videos.interface-repository'
 
 export class VideosPrismaRepository implements IVideosRepository {
   async findAll() {

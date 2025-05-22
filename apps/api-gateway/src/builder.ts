@@ -10,6 +10,6 @@ export function builder() {
   jwtRegister(app)
   routesRegister(app)
   routesRegister(app)
-  
+
   return app
 }
