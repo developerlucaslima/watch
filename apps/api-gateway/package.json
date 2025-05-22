@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx watch src/app.ts",
     "build": "tsc",
-    "start": "npm run build && node ./dist/index.js"
+    "start": "npm run build && node ./dist/index.js",
+    "setup:sqs": "node scripts/create-watch-events-sqs.js"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,6 @@
   "devDependencies": {
     "@types/node": "^22.15.21",
     "serverless": "^4.14.3",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
