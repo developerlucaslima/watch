@@ -7,9 +7,9 @@
     "prisma"
   ],
   "scripts": {
-    "lint:api": "eslint apps/api-gateway/src --config apps/api-gateway/eslint.config.mjs",
-    "lint:worker": "eslint apps/video-view-worker/src --config apps/video-view-worker/eslint.config.mjs",
-    "lint:frontend": "eslint apps/frontend/src --config apps/frontend/eslint.config.mjs",
+    "lint:api": "cd apps/api-gateway && eslint src",
+    "lint:worker": "cd apps/video-view-worker && eslint src",
+    "lint:frontend": "cd apps/frontend/src && eslint src",
     "lint": "npm run lint:api && npm run lint:worker && npm run lint:frontend"
   },
   "devDependencies": {
