@@ -2,35 +2,38 @@ name: Deploy API Gateway
 
 on:
   push:
+    branches:
+      - dev
     paths:
       - 'apps/api-gateway/**'
       - '.github/workflows/deploy-api-gateway.yml'
 
 jobs:
   deploy:
+    name: Deploy API Gateway
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: ⬇️ Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Cache Node.js modules
+      - name: 📦 Cache Node.js modules
         uses: actions/cache@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          path: apps/api-gateway/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('apps/api-gateway/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
+      - name: 📥 Install dependencies
+        working-directory: apps/api-gateway
         run: npm ci
 
-      - name: Deploy API Gateway
+      - name: 🛠️ Build and Typecheck
+        working-directory: apps/api-gateway
+        run: npm run build && npm run typecheck
+
+      - name: 🚀 Deploy to Serverless
         working-directory: apps/api-gateway
         run: npx serverless deploy --stage=dev
         env:
