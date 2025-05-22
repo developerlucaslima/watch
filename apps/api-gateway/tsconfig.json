@@ -1,36 +1,38 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
     "lib": ["ES2022"],
     "moduleResolution": "node",
     "outDir": "dist",
-    "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
       // DDD modules (domain-oriented)
-      "@modules/*": ["modules/*"],
-      "@auth/*": ["modules/auth/*"],
-      "@video/*": ["modules/video/*"],
-      "@watch/*": ["modules/watch/*"],
+      "@modules/*": ["src/modules/*"],
+      "@auth/*": ["src/modules/auth/*"],
+      "@video/*": ["src/modules/video/*"],
+      "@watch/*": ["src/modules/watch/*"],
 
       // Horizontal layers
-      "@routes/*": ["routes/*"],
-      "@plugins/*": ["plugins/*"],
-      "@middlewares/*": ["middlewares/*"],
-      "@services/*": ["services/*"],
+      "@routes/*": ["src/routes/*"],
+      "@plugins/*": ["src/plugins/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@services/*": ["src/services/*"],
 
-      // Infrastructure and shared layers
-      "@env": ["env"],
-      "@database/*": ["database/*"],
-      "@shared/*": ["shared/*"],
-      "@errors/*": ["errors/*"]
+      // Infrastructure
+      "@env": ["src/env"],
+      "@database/*": ["src/database/*"],
+      
+      // Shared
+      "@shared/*": ["../../packages/shared/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
   },
-  "include": ["src/**/*", "prisma/seed.ts", "scripts"]
+  "include": ["../api-gateway/src/**/*", "../api-gateway/scripts", "../../packages/shared/**/*"]
 }

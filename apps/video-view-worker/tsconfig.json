@@ -1,21 +1,25 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
     "lib": ["ES2022"],
     "moduleResolution": "node",
     "outDir": "dist",
-    "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@consumers/*": ["consumers/*"],
-      "@use-cases/*": ["use-cases/*"],
-      "@factories/*": ["factories/*"],
-      "@repositories/*": ["repositories/*"],
-      "@services/*": ["services/*"],
-      "@database/*": ["database/*"],
-      "@shared/*": ["shared/*"],
-      "@env": ["env"]
+      // Clean Architecture - Application Layer
+      "@consumers/*": ["src/consumers/*"],
+      "@use-cases/*": ["src/use-cases/*"],
+      "@factories/*": ["src/factories/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@services/*": ["src/services/*"],
+      
+      // Infrastructure
+      "@env": ["src/env"],
+      "@database/*": ["src/database/*"],
+      // Shared
+      "@shared/*": ["../../packages/shared/*"]
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -24,5 +28,8 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
   },
-  "include": ["src"]
+   "include": [
+    "../video-view-worker/src/**/*",
+    "../../packages/shared/**/*"
+  ]
 }
