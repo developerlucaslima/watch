@@ -1,4 +1,4 @@
-import { builder } from 'builder'
+import { builder } from './builder'
 import { env } from './env'
 
 const startApp = async () => {

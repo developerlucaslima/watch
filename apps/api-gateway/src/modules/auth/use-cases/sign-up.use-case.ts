@@ -1,8 +1,8 @@
-import { EmailNotAvailableException } from 'shared/errors/email-not-available-exception'
 import { hash } from 'bcryptjs'
 import type { UserWithoutPassword } from '@shared/types/user'
 import type { IUsersRepository } from '../repositories/users.interface-repository'
-import { InvalidRequestException } from '@shared/errors/invalid-request-exception'
+import { EmailNotAvailableException } from '@shared/errors/email-not-available.exception'
+import { InvalidRequestException } from '@shared/errors/invalid-request.exception'
 
 interface SignUpUseCaseRequest {
   name: string
@@ -24,7 +24,7 @@ export class SignUpUseCase {
   }: SignUpUseCaseRequest): Promise<SignUpUseCaseResponse> {
     // It should throw InvalidRequestException if the password not received registered.
     if (!password) {
-      throw new InvalidRequestException()
+      throw new InvalidRequestException('Password is required.')
     }
 
     // It should throw EmailNotAvailableException if the email is already registered.

@@ -1,6 +1,6 @@
 import type { Video } from '@shared/types/video'
 import type { IVideosRepository } from '../repositories/videos.interface-repository'
-import { ResourceNotFoundException } from '@shared/errors/resource-not-found-exception'
+import { ResourceNotFoundException } from '@shared/errors/resource-not-found.exception'
 
 interface GetVideoRequest {
   id: string

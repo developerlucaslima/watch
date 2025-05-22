@@ -1,5 +1,5 @@
-import type { WatchEvent } from "@shared/types/watch";
+import type { VideoViewRegisterParams } from "@shared/types/video-view";
 
 export interface IWatchEventsProducer {
-  send(event: WatchEvent): Promise<void>
+  send(event: VideoViewRegisterParams): Promise<void>
 }

@@ -1,4 +1,4 @@
-import { InvalidCredentialsException } from 'shared/errors/invalid-credentials-exception'
+import { InvalidCredentialsException } from '@shared/errors/invalid-credentials.exception'
 import { compare } from 'bcryptjs'
 import type { IUsersRepository } from '../repositories/users.interface-repository'
 import type { UserWithoutPassword } from '@shared/types/user'

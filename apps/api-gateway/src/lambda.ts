@@ -1,5 +1,5 @@
 import serverless from '@fastify/aws-lambda'
-import { builder } from 'builder'
+import { builder } from './builder'
 
 const app = builder()
 
