@@ -5,16 +5,17 @@
   "type": "module",
   "scripts": {
     "migrate": "npx prisma migrate dev",
+    "studio": "npx prisma studio",
     "deploy": "npx prisma migrate deploy",
     "generate": "npx prisma generate",
     "seed": "tsx seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^6.8.2"
+    "@prisma/client": "6.6.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
-    "prisma": "^6.6.0",
+    "prisma": "6.6.0",
     "tsx": "^4.19.4"
   }
 }
