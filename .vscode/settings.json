@@ -3,5 +3,11 @@
   "eslint.validate": ["typescript"],
   "eslint.workingDirectories": [
     { "mode": "auto" }
-  ]
+  ],
+  "explorer.fileNesting.patterns": {
+    "package.json": ".eslint*, eslint*, prettier*, tsconfig*, vite*, pnpm-*, bun.lockb, nest*, package-lock*, .npmrc, .gitignore, .env*",
+    "tailwind.config.*": "tailwind.config*, postcss.config*",
+    ".env.local": ".env.*",
+    ".env": ".env.*"
+  },
 }
