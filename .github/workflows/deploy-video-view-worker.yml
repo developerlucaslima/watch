@@ -20,13 +20,18 @@ jobs:
       - name: 📦 Cache Node.js modules
         uses: actions/cache@v3
         with:
-          path: apps/video-view-worker/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('apps/video-view-worker/package-lock.json') }}
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: 📥 Install root dependencies
+      - name: 📥 Install dependencies
         run: npm ci
+
+      - name: 🧹 Run Lint
+        run: npm run lint:api
 
       - name: 🛠️ Build and Typecheck
         working-directory: apps/video-view-worker
