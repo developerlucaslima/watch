@@ -84,6 +84,9 @@ export default [
           arrowParens: 'always',
           semi: false,
           endOfLine: 'auto',
+          
+          // Tailwind integration
+          plugins: ['prettier-plugin-tailwindcss'],
         },
       ],
     },
