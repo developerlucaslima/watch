@@ -6,6 +6,8 @@
     "packages/*"
   ],
   "scripts": {
+    "postinstall": "npm run generate",
+    "generate": "prisma generate --schema=packages/prisma/schema.prisma",
     "lint:api": "cd apps/api-gateway && npx --no-install eslint src",
     "lint:worker": "cd apps/video-view-worker && npx --no-install eslint src",
     "lint:frontend": "cd apps/frontend && npx --no-install eslint src",

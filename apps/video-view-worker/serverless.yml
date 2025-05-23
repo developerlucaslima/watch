@@ -1,4 +1,5 @@
 service: video-view-worker
+frameworkVersion: ^4
 
 provider:
   name: aws
@@ -26,10 +27,10 @@ functions:
 package:
   individually: true
   excludeDevDependencies: true
-  include:
+  patterns:
+    - node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node
     - node_modules/@prisma/client/**
     - node_modules/.prisma/**
-  exclude:
-    - .git/**
-    - .vscode/**
-    - node_modules/.cache/**
+    - '!**/.git/**'
+    - '!**/.vscode/**'
+    - '!**/node_modules/.cache/**'
