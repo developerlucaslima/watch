@@ -1,4 +1,5 @@
 service: api-gateway
+frameworkVersion: ~4.14.4
 
 provider:
   name: aws
@@ -40,28 +41,18 @@ functions:
               - PATCH
               - OPTIONS
             allowCredentials: true
-            package:
-    patterns:
-      - node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node
-      - node_modules/@prisma/client/**
-      - node_modules/.prisma/**
 
 package:
   individually: true
   excludeDevDependencies: true
   patterns:
-    # ❌ Exclude all query engines
-    - '!node_modules/.prisma/client/libquery_engine*'
-
-    # ✅ Re-include ONLY the required engine (must be after exclusion!)
+    # ✅ Include the required Prisma engine and client
     - node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node
-
-    # ✅ Include necessary Prisma artifacts
     - node_modules/@prisma/client/**
     - node_modules/.prisma/**
 
-    # ❌ Cleanup
+    # ❌ Exclude unnecessary engines and files
+    - '!node_modules/.prisma/client/libquery_engine*'
     - '!**/.git/**'
     - '!**/.vscode/**'
     - '!**/node_modules/.cache/**'
-
