@@ -39,7 +39,7 @@ apiClientSide.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest.__isRetryRequest) {
       try {
         originalRequest.__isRetryRequest = true
-        await apiClientSide.patch('/token/user-refresh')
+        await apiClientSide.patch('/auth/refresh-token')
         return apiClientSide(originalRequest)
       } catch (refreshError) {
         await handleSessionExpired()
