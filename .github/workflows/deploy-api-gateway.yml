@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install all dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Generate Prisma Client for Lambda
@@ -29,6 +29,10 @@ jobs:
     name: 🧹 Lint
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
       - run: npm run lint:api
 
   typecheck:
@@ -37,7 +41,12 @@ jobs:
     name: 🔎 Typecheck
     steps:
       - uses: actions/checkout@v3
-      - run: npm run --workspace=apps/api-gateway typecheck
+
+      - name: Install dependencies
+        run: npm ci
+
+      - run: npm run typecheck
+        working-directory: apps/api-gateway
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,6 +54,14 @@ jobs:
     name: 🚀 Deploy API Gateway
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client for Lambda
+        run: npx prisma generate --schema=packages/prisma/schema.prisma
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Deploy to AWS via Serverless
         working-directory: apps/api-gateway
