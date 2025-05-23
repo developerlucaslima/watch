@@ -19,29 +19,27 @@ provider:
     SQS_QUEUE_URL: ${env:SQS_QUEUE_URL}
     DATABASE_URL: ${env:DATABASE_URL}
     NODE_OPTIONS: --enable-source-maps
-  httpApi:
-    cors:
-      allowedOrigins:
-        - ${env:ORIGIN_URL}
-      allowedMethods:
-        - GET
-        - POST
-        - PUT
-        - DELETE
-        - PATCH
-        - OPTIONS
-      allowedHeaders:
-        - Content-Type
-        - Authorization
-      allowCredentials: true
 
 functions:
   api:
     handler: src/lambda.handler
     events:
-      - httpApi:
-          method: ANY
+      - http:
           path: /{proxy+}
+          method: ANY
+          cors:
+            origin: ${env:ORIGIN_URL}
+            headers:
+              - Content-Type
+              - Authorization
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - PATCH
+              - OPTIONS
+            allowCredentials: true
 
 package:
   individually: true
