@@ -17,7 +17,7 @@ jobs:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v3
 
-      - name: 📦 Install dependencies
+      - name: 📦 Install root dependencies
         run: npm ci
 
       - name: 🧹 Run Lint
@@ -35,8 +35,12 @@ jobs:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v3
 
-      - name: 📦 Install dependencies
+      - name: 📦 Install root dependencies
         run: npm ci
+
+      - name: 📦 Install gateway dependencies
+        working-directory: apps/api-gateway
+        run: npm install
 
       - name: ⚙️ Run SQS Setup Script
         run: npm run setup:sqs
@@ -56,19 +60,24 @@ jobs:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v3
 
-      - name: 📦 Install dependencies
+      - name: 📦 Install root dependencies
         run: npm ci
 
-      - name: 🛠️ Generate Prisma Client (root)
-        run: npx prisma generate --schema=prisma/schema.prisma
+      - name: 📦 Install gateway dependencies
+        working-directory: apps/api-gateway
+        run: npm install
+
+      - name: 🛠️ Generate Prisma Client
+        working-directory: apps/api-gateway
+        run: npx prisma generate --schema=../../prisma/schema.prisma
 
       - name: 🛠️ Build Lambda Api
-        run: npm run build
         working-directory: apps/api-gateway
+        run: npm run build
 
       - name: 🚀 Deploy Lambda Api
-        run: npx serverless deploy --stage=dev
         working-directory: apps/api-gateway
+        run: npx serverless deploy --stage=dev
         env:
           NODE_ENV: production
           ORIGIN_URL: ${{ secrets.ORIGIN_URL }}

@@ -44,7 +44,7 @@ jobs:
 
       - name: 🛠️ Generate Prisma Client
         working-directory: apps/video-view-worker
-        run: npx prisma generate --schema=prisma/schema.prisma
+        run: npx prisma generate --schema=../../prisma/schema.prisma
 
       - name: 🛠️ Build Lambda Worker
         working-directory: apps/video-view-worker
