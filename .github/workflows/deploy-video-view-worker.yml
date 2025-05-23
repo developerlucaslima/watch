@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: 🧹 Run Lint
-        run: npm run lint:api
+        run: npm run lint:worker
 
       - name: 🔎 Typecheck
         run: npm run --workspace=apps/video-view-worker typecheck
