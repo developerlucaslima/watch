@@ -1,3 +1,14 @@
+export const INITIAL_PUBLIC_PAGE = '/sign-in'
+export const PUBLIC_ROUTES = [
+  INITIAL_PUBLIC_PAGE,
+  '/sign-up',
+  '/forgot-password',
+  '/reset-password',
+]
+
+export const INITIAL_PRIVATE_PAGE = '/videos'
+export const PRIVATE_ROUTES = [INITIAL_PRIVATE_PAGE]
+
 // export const ROUTES = {
 //   HOME: '/',
 //   LOGIN: '/login',
@@ -16,12 +27,3 @@
 //     DETAIL: (id: string) => `/videos/${id}`,
 //   },
 // } as const
-
-export const PUBLIC_ROUTES = [
-  '/sign-in',
-  '/sign-up',
-  '/forgot-password',
-  '/reset-password',
-]
-
-export const PRIVATE_ROUTES = ['/videos']
