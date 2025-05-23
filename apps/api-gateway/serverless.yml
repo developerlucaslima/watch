@@ -13,7 +13,6 @@ provider:
     lambda: true
   environment:
     NODE_ENV: ${env:NODE_ENV}
-    PORT: ${env:PORT}
     JWT_SECRET: ${env:JWT_SECRET}
     ORIGIN_URL: ${env:ORIGIN_URL}
     AWS_REGION: ${env:AWS_REGION}
