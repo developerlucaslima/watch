@@ -39,7 +39,9 @@ functions:
   api:
     handler: src/lambda.handler
     events:
-      - httpApi: '*'
+      - httpApi:
+          method: ANY
+          path: /{proxy+}
 
 package:
   individually: true
