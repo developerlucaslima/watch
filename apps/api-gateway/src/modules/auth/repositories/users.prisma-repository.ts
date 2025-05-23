@@ -1,4 +1,4 @@
-import { prisma } from '@prisma/client'
+import { prisma } from '@database/prisma'
 import type { UserCreateParams } from '@shared/types/user'
 
 import type { IUsersRepository } from './users.interface-repository'

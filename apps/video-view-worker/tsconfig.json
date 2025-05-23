@@ -16,7 +16,7 @@
 
       // 🛠 Infrastructure
       "@env": ["src/env"],                           // Environment variable validation and loading
-      "@database/*": ["src/database/*"],             // Persistence layer (e.g., Prisma, migrations, schema)
+      "@database/*": ["src/database/*"],             // DB setup, migrations, Prisma
 
       // ♻️ Shared code across projects
       "@shared/*": ["../../packages/shared/*"]       // Shared DTOs, types, and utilities between frontend/backend

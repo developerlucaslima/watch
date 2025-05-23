@@ -21,12 +21,11 @@
 
       // 🛠 Infrastructure & environment
       "@env": ["src/env"],                         // Env var validation (e.g. zod)
-      "@database/*": ["../../packages/shared/*"],           // DB setup, migrations, Prisma
+      "@database/*": ["src/database/*"],           // DB setup, migrations, Prisma
       "@infra/*": ["src/infra/*"],                 // AWS, external adapters, transport layers
 
       // ♻️ Shared cross-project types/utilities
       "@shared/*": ["../../packages/shared/*"],     // Shared types/utils between backend & frontend
-      "@prisma/*": ["../../packages/prisma/*"]     // Shared types/utils between backend & frontend
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
