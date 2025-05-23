@@ -1,16 +1,16 @@
 import { apiClientSide } from '@api/api-csr'
 import type { User } from '@shared/types/user'
 
-export interface SignInBody {
+export interface SignUpBody {
   name: string
   email: string
   password: string
 }
-export async function signIn({
+export async function signUp({
   name,
   email,
   password,
-}: SignInBody): Promise<User> {
+}: SignUpBody): Promise<User> {
   const response = await apiClientSide.post('/auth/sign-up', {
     name,
     email,
