@@ -15,7 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
       - name: Install all dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Generate Prisma Client for Lambda
@@ -37,7 +45,8 @@ jobs:
     name: 🔎 Typecheck
     steps:
       - uses: actions/checkout@v3
-      - run: npm run --workspace=apps/video-view-worker typecheck
+      - run: npm run typecheck
+        working-directory: apps/video-view-worker
 
   build:
     runs-on: ubuntu-latest
@@ -45,7 +54,8 @@ jobs:
     name: 🏗 Build
     steps:
       - uses: actions/checkout@v3
-      - run: npm run --workspace=apps/video-view-worker build
+      - run: npm run build
+        working-directory: apps/video-view-worker
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,14 +63,6 @@ jobs:
     name: 🚀 Deploy Video View Worker
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install all dependencies
-        run: npm ci
-
-      - name: Generate Prisma Client for Lambda
-        run: npx prisma generate --schema=packages/prisma/schema.prisma
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Deploy to AWS via Serverless
         working-directory: apps/video-view-worker
