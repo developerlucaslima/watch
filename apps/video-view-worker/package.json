@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.422.0",
-    "@prisma/client": "6.6.0",
+    "@prisma/client": "6.8.2",
     "dotenv": "^16.5.0",
     "pino": "^8.15.0",
     "pino-pretty": "^10.3.0",
