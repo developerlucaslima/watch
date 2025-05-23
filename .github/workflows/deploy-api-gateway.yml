@@ -67,11 +67,11 @@ jobs:
         working-directory: apps/api-gateway
         run: npm install
 
-      - name: 🛠️ Generate Prisma Client
-        working-directory: apps/api-gateway
-        run: npx prisma generate --schema=../../prisma/schema.prisma
+      - name: 🛠️ Generate Prisma Client at root
+        run: npx prisma generate --schema=prisma/schema.prisma
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
 
       - name: 📦 Package Lambda
         working-directory: apps/api-gateway
