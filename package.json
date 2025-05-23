@@ -6,13 +6,18 @@
     "packages/*"
   ],
   "scripts": {
-    "generate": "prisma generate --schema=packages/prisma/schema.prisma",
-    "postinstall": "npm run generate",
+    "prisma:generate": "npx prisma generate --schema=packages/prisma/schema.prisma",
+    "postinstall": "npm run prisma:generate",
+
+    "typecheck:api": "cd apps/api-gateway && tsc --noEmit",
+    "build:api": "cd apps/api-gateway && npm run build",
+
+    "typecheck:worker": "cd apps/video-view-worker && tsc --noEmit",
+    "build:worker": "cd apps/video-view-worker && npm run build",
 
     "lint:api": "eslint apps/api-gateway --config apps/api-gateway/eslint.config.mjs",
     "lint:worker": "eslint apps/video-view-worker --config apps/video-view-worker/eslint.config.mjs",
     "lint:frontend": "eslint apps/frontend --config apps/frontend/eslint.config.mjs",
-
     "lint": "npm run lint:api && npm run lint:worker && npm run lint:frontend"
   },
   "devDependencies": {
