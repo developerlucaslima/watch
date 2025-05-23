@@ -45,17 +45,17 @@ package:
   individually: true
   excludeDevDependencies: true
   patterns:
-    # ✅ First, exclude all engines
+    # ❌ Exclude all query engines
     - '!node_modules/.prisma/client/libquery_engine*'
 
-    # ✅ Then explicitly include only the needed engine (order matters)
+    # ✅ Re-include ONLY the required engine (must be after exclusion!)
     - node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node
 
-    # ✅ Include Prisma client artifacts
+    # ✅ Include necessary Prisma artifacts
     - node_modules/@prisma/client/**
     - node_modules/.prisma/**
 
-    # ❌ Exclude unnecessary files
+    # ❌ Cleanup
     - '!**/.git/**'
     - '!**/.vscode/**'
     - '!**/node_modules/.cache/**'
