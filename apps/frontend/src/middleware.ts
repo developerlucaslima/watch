@@ -1,4 +1,9 @@
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '@constants/routes'
+import {
+  INITIAL_PRIVATE_PAGE,
+  INITIAL_PUBLIC_PAGE,
+  PRIVATE_ROUTES,
+  PUBLIC_ROUTES,
+} from '@constants/routes'
 import { NextRequest, NextResponse } from 'next/server'
 
 export function middleware(request: NextRequest) {
@@ -14,12 +19,12 @@ export function middleware(request: NextRequest) {
   )
 
   if (isPublicOnlyRoutes && token) {
-    const url = new URL('/videos', request.url)
+    const url = new URL(INITIAL_PRIVATE_PAGE, request.url)
     return NextResponse.redirect(url)
   }
 
   if (isPrivateRoutes && !token) {
-    const url = new URL('/sign-in', request.url)
+    const url = new URL(INITIAL_PUBLIC_PAGE, request.url)
     return NextResponse.redirect(url)
   }
 
