@@ -88,9 +88,14 @@ jobs:
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
           SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
 
+      - name: 📂 List Serverless output files
+        run: ls -lh apps/api-gateway/.serverless
+
       - name: ✅ Confirm Prisma Engine in package
         run: |
-          unzip -l apps/api-gateway/.serverless/api-gateway-dev.zip | grep libquery_engine-linux-arm64-openssl-3.0.x.so.node || {
+          FILE=$(find apps/api-gateway/.serverless -name "*.zip" | head -n 1)
+          echo "🔍 Checking contents of: $FILE"
+          unzip -l "$FILE" | grep libquery_engine-linux-arm64-openssl-3.0.x.so.node || {
             echo "❌ Prisma engine not found in deployment package"
             exit 1
           }
