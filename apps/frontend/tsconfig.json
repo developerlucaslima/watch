@@ -32,13 +32,13 @@
       "@hooks/*": ["src/hooks/*"],                // Reusable React hooks (non-feature-specific)
 
       // 🔌 Infrastructure and services
-      "@services/*": ["src/services/*"],          // API clients, HTTP utilities
+      "@api/*": ["src/api/*"],          // API clients, HTTP utilities
       "@lib/*": ["src/lib/*"],                    // Low-level utilities (cookies, JWT, etc.)
       "@styles/*": ["src/styles/*"],              // Global styles, Tailwind config
       
-      // 📦 Types and constants
-      // "@types/*": ["src/types/*"],                // Global type declarations and DTOs
-      // "@constants/*": ["src/constants/*"],        // Shared constants (routes, messages, enums)
+      // 📦 Utils and constants
+      "@constants/*": ["src/constants/*"],        // Shared constants (routes, messages, enums)
+      "@utils/*": ["src/utils/*"],        // Shared constants (routes, messages, enums)
       
       // ♻️ Shared code with backend
       "@shared/*": ["../../packages/shared/*"],    // Shared package with types and utilities
