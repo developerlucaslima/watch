@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "module": "ES2022",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "jsx": "preserve",
     "allowJs": false,
@@ -15,39 +15,47 @@
     "incremental": true,
     "isolatedModules": true,
     "baseUrl": ".",
+
     "paths": {
       // 🧩 Specific feature modules
-      "@auth/*": ["src/features/auth/*"],         // Authentication (login, signup, Google)
-      "@video/*": ["src/features/video/*"],       // Video listing and metadata
-      "@watch/*": ["src/features/watch/*"],       // Video player page /watch/[id]
-      "@player/*": ["src/features/player/*"],     // Decoupled, reusable video player component
+      "@auth/*": ["src/features/auth/*"],
+      "@video/*": ["src/features/video/*"],
+      "@watch/*": ["src/features/watch/*"],
+      "@player/*": ["src/features/player/*"],
       
       // 🧱 Reusable UI components
-      "@components/*": ["src/components/*"],      // Shared UI components
-      "@ui/*": ["src/components/ui/*"],           // Shadcn UI components (Button, Input, etc.)
-      "@layout/*": ["src/components/layout/*"],   // Layout components like Header, Footer, etc.
+      "@components/*": ["src/components/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@layout/*": ["src/components/layout/*"],
       
       // ⚙️ Global state and logic
-      "@stores/*": ["src/stores/*"],              // Zustand global state stores
-      "@hooks/*": ["src/hooks/*"],                // Reusable React hooks (non-feature-specific)
-
+      "@stores/*": ["src/stores/*"],
+      "@hooks/*": ["src/hooks/*"],
+      
       // 🔌 Infrastructure and services
-      "@api/*": ["src/api/*"],          // API clients, HTTP utilities
-      "@lib/*": ["src/lib/*"],                    // Low-level utilities (cookies, JWT, etc.)
-      "@styles/*": ["src/styles/*"],              // Global styles, Tailwind config
+      "@api/*": ["src/api/*"],
+      "@lib/*": ["src/lib/*"],
+      "@styles/*": ["src/styles/*"],
       
       // 📦 Utils and constants
-      "@constants/*": ["src/constants/*"],        // Shared constants (routes, messages, enums)
-      "@utils/*": ["src/utils/*"],        // Shared constants (routes, messages, enums)
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
       
-      // ♻️ Shared code with backend
-      "@shared/*": ["../../packages/shared/*"],    // Shared package with types and utilities
+      // ♻️ Shared code with backend (monorepo)
+      "@shared/*": ["../../packages/shared/*"],
 
       // 🌐 Base aliases
-      "@/*": ["src/*"],                           // Generic access to anything inside src/
-      "@features/*": ["src/features/*"],          // Domain-driven features (DDD-style folders)
-    }
+      "@/*": ["src/*"],
+      "@features/*": ["src/features/*"]
+    },
+
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
+
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -55,5 +63,6 @@
     ".next/types/**/*.ts",
     "../../packages/shared"
   ],
+
   "exclude": ["node_modules"]
 }
