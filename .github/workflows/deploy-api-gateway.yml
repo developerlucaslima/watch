@@ -85,6 +85,7 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           SQS_QUEUE_URL: ${{ secrets.SQS_QUEUE_URL }}
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
 
       - name: ✅ Confirm Prisma Engine in package
         run: |
