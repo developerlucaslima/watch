@@ -59,11 +59,14 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
-      - name: 🛠️ Build
+      - name: 🛠️ Generate Prisma Client (root)
+        run: npx prisma generate --schema=prisma/schema.prisma
+
+      - name: 🛠️ Build Lambda Api
         run: npm run build
         working-directory: apps/api-gateway
 
-      - name: 🚀 Deploy to Serverless
+      - name: 🚀 Deploy Lambda Api
         run: npx serverless deploy --stage=dev
         working-directory: apps/api-gateway
         env:
