@@ -2,6 +2,7 @@
   "name": "video-view-worker",
   "version": "1.0.0",
   "scripts": {
+    "prisma": "npx prisma generate --schema=../../prisma/schema.prisma",
     "dev": "tsx watch src/handler.ts",
     "build": "tsc",
     "typecheck": "tsc --noEmit"
