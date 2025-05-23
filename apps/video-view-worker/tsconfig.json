@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
@@ -29,8 +28,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
   },
-   "include": [
-    "../video-view-worker/src/**/*",
-    "../../packages/shared/**/*"
-  ]
+  "include": ["src", "../../packages/shared", "../../packages/prisma"]
 }

@@ -1,4 +1,4 @@
-import { prisma } from '@database/prisma'
+import { prisma } from '@prisma/client'
 
 import type { IVideosRepository } from './videos.interface-repository'
 

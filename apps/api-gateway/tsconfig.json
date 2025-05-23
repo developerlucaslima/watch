@@ -1,5 +1,4 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "ES2022",
@@ -22,11 +21,12 @@
 
       // 🛠 Infrastructure & environment
       "@env": ["src/env"],                         // Env var validation (e.g. zod)
-      "@database/*": ["src/database/*"],           // DB setup, migrations, Prisma
+      "@database/*": ["../../packages/shared/*"],           // DB setup, migrations, Prisma
       "@infra/*": ["src/infra/*"],                 // AWS, external adapters, transport layers
 
       // ♻️ Shared cross-project types/utilities
-      "@shared/*": ["../../packages/shared/*"]     // Shared types/utils between backend & frontend
+      "@shared/*": ["../../packages/shared/*"],     // Shared types/utils between backend & frontend
+      "@prisma/*": ["../../packages/prisma/*"]     // Shared types/utils between backend & frontend
     },
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -35,5 +35,5 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"]
   },
-  "include": ["src", "scripts", "../../packages/shared"]
+  "include": ["src", "scripts", "../../packages/shared", "../../packages/prisma"]
 }

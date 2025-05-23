@@ -3,11 +3,9 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "prisma"
+    "packages/*"
   ],
   "scripts": {
-    "build": "npx prisma generate",
     "lint:api": "cd apps/api-gateway && npx --no-install eslint src",
     "lint:worker": "cd apps/video-view-worker && npx --no-install eslint src",
     "lint:frontend": "cd apps/frontend && npx --no-install eslint src",
@@ -27,10 +25,6 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "3.5.3",
-    "prettier-plugin-tailwindcss": "0.6.11",
-    "prisma": "6.8.2"
-  },
-  "dependencies": {
-    "@prisma/client": "6.8.2"
+    "prettier-plugin-tailwindcss": "0.6.11"
   }
 }
