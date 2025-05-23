@@ -4,10 +4,10 @@ interface ErrorMessageProps {
 
 export const ErrorMessage = ({ error }: ErrorMessageProps) => (
   <p
-    className={`min-h-[1rem] text-xs text-red-500 transition-opacity ${
+    className={`min-h-1 text-xs text-red-500 transition-opacity ${
       error ? 'opacity-100' : 'opacity-0'
     }`}
   >
-    {error || ' '}
+    {error || 'Error'}
   </p>
 )

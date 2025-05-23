@@ -1,5 +1,7 @@
 'use client'
 
+import { useSignIn } from '@auth/hooks/use-sign-in'
+import { ErrorMessage } from '@components/ui/error-message'
 import { Eye, EyeClosed } from 'lucide-react'
 import { useState } from 'react'
 
@@ -9,12 +11,12 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 
-import { useSignIn } from '../hooks/use-sign-in'
 import { AuthFooter } from './auth-footer'
 
 export function SignInForm() {
   const [showPassword, setShowPassword] = useState(false)
-  const { handleSignIn, handleSubmit, isSubmitting, register } = useSignIn()
+  const { handleSignIn, handleSubmit, isSubmitting, register, errors } =
+    useSignIn()
 
   return (
     <Card className="overflow-hidden">
@@ -23,6 +25,7 @@ export function SignInForm() {
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="email">E-mail</Label>
             <Input id="email" type="email" {...register('email')} />
+            <ErrorMessage error={errors.email?.message} />
           </div>
 
           <div className="flex flex-col space-y-1.5">
@@ -57,6 +60,7 @@ export function SignInForm() {
                 )}
               </Button>
             </div>
+            <ErrorMessage error={errors.password?.message} />
           </div>
           <Button disabled={isSubmitting} type="submit" className="w-full">
             Entrar
