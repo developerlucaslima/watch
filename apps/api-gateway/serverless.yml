@@ -45,17 +45,18 @@ package:
   individually: true
   excludeDevDependencies: true
   patterns:
-    # ✅ Include the correct Prisma engine binary for AWS Lambda (ARM64 + OpenSSL 3.0)
+    # ✅ First, exclude all engines
+    - '!node_modules/.prisma/client/libquery_engine*'
+
+    # ✅ Then explicitly include only the needed engine (order matters)
     - node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node
 
-    # ✅ Include Prisma client code
+    # ✅ Include Prisma client artifacts
     - node_modules/@prisma/client/**
     - node_modules/.prisma/**
-
-    # ❌ Exclude unused query engines (e.g., x64, Windows, etc.)
-    - '!node_modules/.prisma/client/libquery_engine*'
 
     # ❌ Exclude unnecessary files
     - '!**/.git/**'
     - '!**/.vscode/**'
     - '!**/node_modules/.cache/**'
+
