@@ -73,9 +73,18 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-      - name: 🛠️ Build Lambda Api
+      - name: 📦 Package Lambda
         working-directory: apps/api-gateway
-        run: npm run build
+        run: npx serverless package --stage=dev
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: ✅ Confirm Prisma Engine in package
+        run: |
+          unzip -l apps/api-gateway/.serverless/api-gateway-dev.zip | grep libquery_engine-linux-arm64-openssl-3.0.x.so.node || {
+            echo "❌ Prisma engine not found in deployment package"
+            exit 1
+          }
 
       - name: 🚀 Deploy Lambda Api
         working-directory: apps/api-gateway
