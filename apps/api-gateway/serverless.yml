@@ -45,8 +45,17 @@ functions:
 package:
   individually: true
   patterns:
-    - '!node_modules/.prisma/client/libquery_engine-*'
-    - 'node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node'
-    - '!node_modules/prisma/libquery_engine-*'
-    - '!node_modules/@prisma/engines/**'
-    - '!node_modules/.cache/prisma/**'
+    # ✅ Include the engine binary from the root node_modules
+    - '../../node_modules/.prisma/client/libquery_engine-linux-arm64-openssl-3.0.x.so.node'
+    - '../../node_modules/prisma/libquery_engine-linux-arm64-openssl-3.0.x.so.node'
+
+    # ✅ Include Prisma Client runtime
+    - '../../node_modules/@prisma/client/**'
+    - '../../node_modules/.prisma/**'
+
+    # ✅ Exclude unnecessary junk
+    - '!**/.git/**'
+    - '!**/.vscode/**'
+    - '!**/.cache/**'
+    - '!**/node_modules/@prisma/engines/**'
+    - '!**/node_modules/.cache/prisma/**'
